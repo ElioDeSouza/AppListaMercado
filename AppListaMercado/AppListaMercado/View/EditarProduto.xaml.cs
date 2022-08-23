@@ -4,7 +4,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ListaMercado.m.View
+namespace AppListaMercado.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditarProduto : ContentPage
@@ -19,11 +19,11 @@ namespace ListaMercado.m.View
             try
             {
                
-                Produto produto_anexado = BindingContext as Produto;
+                Produtos produto_anexado = BindingContext as Produtos;
 
 
                 
-                Produto p = new Produto
+                Produtos p = new Produtos
                 {
                     //Id = ((Produto) BindingContext).Id,
                     Id = produto_anexado.Id,
@@ -37,7 +37,7 @@ namespace ListaMercado.m.View
 
                 await DisplayAlert("Sucesso!", "Produto Editado", "OK");
 
-                await Navigation.PushAsync(new Listagem());
+                await Navigation.PushAsync(new ListarProduto());
             }
             catch (Exception ex)
             {

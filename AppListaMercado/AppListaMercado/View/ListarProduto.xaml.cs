@@ -10,14 +10,14 @@ using Xamarin.Forms.Xaml;
 namespace AppListaMercado.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Listagem : ContentPage
+    public partial class ListarProduto : ContentPage
     {
        
-        ObservableCollection<Produto> lista_produtos = new ObservableCollection<Produto>();
+        ObservableCollection<Produtos> lista_produtos = new ObservableCollection<Produtos>();
 
 
         
-        public Listagem()
+        public ListarProduto()
         {
             InitializeComponent();
 
@@ -61,13 +61,13 @@ namespace AppListaMercado.View
                 
                 System.Threading.Tasks.Task.Run(async () =>
                 {
-                    /
-                    List<Produto> temp = await App.Database.GetAll();
+                    
+                    /*/List<Produtos> temp = await App.Database.GetAll();
 
-                    foreach (Produto item in temp)
+                    foreach (Produtos item in temp)
                     {
                         lista_produtos.Add(item);
-                    }
+                    }*/
 
                     
                     ref_carregando.IsRefreshing = false;
@@ -84,7 +84,7 @@ namespace AppListaMercado.View
 
 
             
-            Produto produto_selecionado = (Produto)disparador.BindingContext;
+            Produtos produto_selecionado = (Produtos)disparador.BindingContext;
 
             bool confirmacao = await DisplayAlert("Tem Certeza?", "Remover Item?", "Sim", "Não");
 
@@ -106,12 +106,12 @@ namespace AppListaMercado.View
 
             System.Threading.Tasks.Task.Run(async () =>
             {
-                List<Produto> temp = await App.Database.Search(buscou);
+                List<Produtos> temp = await App.Database.Search(buscou);
 
                 
                 lista_produtos.Clear();
 
-                foreach (Produto item in temp)
+                foreach (Produtos item in temp)
                 {
                     lista_produtos.Add(item);
                 }
@@ -124,10 +124,10 @@ namespace AppListaMercado.View
         
         private void lst_produtos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            /
+            
             Navigation.PushAsync(new EditarProduto
             {
-                BindingContext = (Produto)e.SelectedItem
+                BindingContext = (Produtos)e.SelectedItem
             });
         }
     }

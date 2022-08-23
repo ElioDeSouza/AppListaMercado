@@ -1,6 +1,8 @@
-﻿namespace AppListaMercado.Model
+﻿using SQLite;
+
+namespace AppListaMercado.Model
 {
-    internal class Produtos
+    public class Produtos
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

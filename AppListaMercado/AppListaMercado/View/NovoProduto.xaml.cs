@@ -4,7 +4,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppListamercado.View
+namespace AppListaMercado.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NovoProduto : ContentPage
@@ -20,7 +20,7 @@ namespace AppListamercado.View
             try
             {
                 
-                Produto p = new Produto
+                Produtos p = new Produtos
                 {
                     Descricao = txt_descricao.Text,
                     Quantidade = Convert.ToDouble(txt_quantidade.Text),
@@ -37,7 +37,7 @@ namespace AppListamercado.View
 
 
                 
-                await Navigation.PushAsync(new Listagem());
+                await Navigation.PushAsync(new ListarProduto());
             }
             catch (Exception ex)
             {
