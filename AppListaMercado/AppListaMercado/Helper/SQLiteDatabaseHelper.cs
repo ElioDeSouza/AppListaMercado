@@ -46,7 +46,7 @@ namespace AppListaMercado.Helper
         
         public Task<List<Produtos>> Update(Produtos p)
         {
-            string sql = "UPDATE Produto SET Descricao=?, Quantidade=?, Preco=? WHERE id= ? ";
+            string sql = "UPDATE Produtos SET Descricao=?, Quantidade=?, Preco=? WHERE id= ? ";
             return _conn.QueryAsync<Produtos>(sql, p.Descricao, p.Quantidade, p.Preco, p.Id);
         }
 
@@ -68,7 +68,7 @@ namespace AppListaMercado.Helper
        
         public Task<List<Produtos>> Search(string q)
         {
-            string sql = "SELECT * FROM Produto WHERE Descricao LIKE '%" + q + "%' ";
+            string sql = "SELECT * FROM Produtos WHERE Descricao LIKE '%" + q + "%' ";
 
             return _conn.QueryAsync<Produtos>(sql);
         }
