@@ -62,12 +62,12 @@ namespace AppListaMercado.View
                 System.Threading.Tasks.Task.Run(async () =>
                 {
                     
-                    /*/List<Produtos> temp = await App.Database.GetAll();
+                    List<Produtos> temp = await App.Database.GetAll();
 
                     foreach (Produtos item in temp)
                     {
                         lista_produtos.Add(item);
-                    }*/
+                    }
 
                     
                     ref_carregando.IsRefreshing = false;
